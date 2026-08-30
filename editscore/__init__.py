@@ -67,6 +67,14 @@ class EditScore:
                 seed=seed,
                 lora_path=lora_path,
             )
+        elif self.backbone == "qwen3vl_llamacpp":
+            from .mllm_tools.qwen3vl_llamacpp import Qwen3VLLlamaCpp
+            self.model = Qwen3VLLlamaCpp(
+                vlm_model=model_name_or_path,
+                temperature=temperature,
+                seed=seed,
+                lora_path=lora_path,
+            )
         elif self.backbone == "qwen3vl_vllm":
             from .mllm_tools.qwen3vl_vllm import Qwen3VL
             self.model = Qwen3VL(
